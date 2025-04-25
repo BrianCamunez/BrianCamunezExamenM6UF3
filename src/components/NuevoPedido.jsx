@@ -3,7 +3,6 @@ import FichaBirra from "./FichaBirra";
 import bd from "../datos/info";
 import { ComandasContext } from "../context/ComandasContext";
 
-
 const NuevoPedido = () => {
 
     const { agregarComanda } = useContext(ComandasContext);
