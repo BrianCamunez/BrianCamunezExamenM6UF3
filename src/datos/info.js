@@ -40,4 +40,5 @@ export const bd = [
       imagen: "https://static.damm.com/sites/default/files/config-page/estrella_header_logo/estrella-damm_0.png"
     }
   ];
-  
+
+export default bd;
