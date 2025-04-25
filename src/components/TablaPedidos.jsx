@@ -1,4 +1,17 @@
-const TablaPedidos = ({ comandas }) => {
+import { ComandasContext } from "../context/ComandasContext";
+import { useContext } from "react";
+
+const TablaPedidos = () => {
+
+    const { comandas, setComandas } = useContext(ComandasContext);
+
+    const cambiarEstado = (index) => {
+        const newComandas = [...comandas];
+        newComandas[index].estado = newComandas[index].estado === "pendiente" ? "servido" : "pendiente";
+        setComandas(newComandas);
+    }
+
+
     return (
         <div id="tablaPedidos" class="container mt-5 mb-5 p-5 border shadow-lg ">
             <div class="row">
@@ -23,12 +36,17 @@ const TablaPedidos = ({ comandas }) => {
                                 <td>{comanda.cerveza}</td>
                                 <td>{comanda.cantidad}</td>
                                 <td>
-                                    <div className="d-flex gap-2">
-                                        {comanda.estado === "pendiente" ? (
-                                            <button className="btn btn-outline-warning w-100 btn-sm">Pedido pendiente...</button>
-                                        ) : (
-                                            <button className="btn btn-outline-success w-100 btn-sm">¡Pedido servido!</button>
-                                        )}
+                                <div className="d-flex gap-2">
+                                        <button
+                                            className={`btn w-100 btn-sm ${
+                                                comanda.estado === "pendiente"
+                                                    ? "btn-outline-warning"
+                                                    : "btn-outline-success"
+                                            }`}
+                                            onClick={() => cambiarEstado(index)}
+                                        >
+                                            {comanda.estado === "pendiente" ? "Pedido pendiente..." : "¡Pedido servido!"}
+                                        </button>
                                         <button className="btn btn-outline-danger w-100 btn-sm">🗑 Borrar pedido</button>
                                     </div>
                                 </td>
