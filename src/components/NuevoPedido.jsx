@@ -1,12 +1,15 @@
+import { useState } from "react";
 import FichaBirra from "./FichaBirra";
 import bd from "../datos/info";
 
 const NuevoPedido = () => {
 
-    const birra = {
-        nombre: "Mahou Cinco Estrellas",
-        imagen: "https://www.mahou.es/wp-content/themes/mahou_v2/template-contents/mahou-familia/dist/images/Botella_Mahou_5_Estrellas.png",
-        descripcion: "Cerveza rubia, suave y refrescante con un sabor ligeramente amargo.",
+    const [birra, setBirra] = useState(null);
+
+    const camabiarBirra = (e) => {
+        const id = e.target.value;
+        const birra = bd.find((birra) => birra.id == id);
+        setBirra(birra);
     }
 
     return (
@@ -20,7 +23,7 @@ const NuevoPedido = () => {
 
                 <h3 className="mt-5">Haz tu pedido</h3>
                 <div className="d-flex gap-3 ">
-                    <select name="cervezas" id="cervezas" className="form-control">
+                    <select name="cervezas" id="cervezas" className="form-control" onChange={camabiarBirra}>
                         <option value="">Selecciona qué birra quieres</option>
                         {bd.map((birra) => (
                             <option key={birra.id} value={birra.id}>
@@ -33,7 +36,7 @@ const NuevoPedido = () => {
                 </div>
                 <button className="btn btn-success mt-4 w-100">¡Enviar pedido!</button>
             </div>
-           <FichaBirra birra={birra}/>
+            {birra && <FichaBirra birra={birra} />}
         </>
     );
 }
