@@ -11,6 +11,11 @@ const TablaPedidos = () => {
         setComandas(newComandas);
     }
 
+    const borrarComanda = (index) => {
+        const newComandas = [...comandas];
+        newComandas.splice(index, 1);
+        setComandas(newComandas);
+    }
 
     return (
         <div id="tablaPedidos" class="container mt-5 mb-5 p-5 border shadow-lg ">
@@ -47,7 +52,7 @@ const TablaPedidos = () => {
                                         >
                                             {comanda.estado === "pendiente" ? "Pedido pendiente..." : "¡Pedido servido!"}
                                         </button>
-                                        <button className="btn btn-outline-danger w-100 btn-sm">🗑 Borrar pedido</button>
+                                        <button className="btn btn-outline-danger w-100 btn-sm" onClick={() => borrarComanda(index)}>🗑 Borrar pedido</button>
                                     </div>
                                 </td>
                             </tr>
