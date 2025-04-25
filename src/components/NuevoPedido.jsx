@@ -1,6 +1,13 @@
 import FichaBirra from "./FichaBirra";
 
 const NuevoPedido = () => {
+
+    const birra = {
+        nombre: "Mahou Cinco Estrellas",
+        imagen: "https://www.mahou.es/wp-content/themes/mahou_v2/template-contents/mahou-familia/dist/images/Botella_Mahou_5_Estrellas.png",
+        descripcion: "Cerveza rubia, suave y refrescante con un sabor ligeramente amargo.",
+    }
+
     return (
         <>
             <div className="col-6">
@@ -21,7 +28,7 @@ const NuevoPedido = () => {
                 </div>
                 <button className="btn btn-success mt-4 w-100">¡Enviar pedido!</button>
             </div>
-           <FichaBirra/>
+           <FichaBirra birra={birra}/>
         </>
     );
 }

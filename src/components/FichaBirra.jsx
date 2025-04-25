@@ -1,13 +1,13 @@
-const fichaBirra = ( birra ) =>{
+const fichaBirra = ({ birra }) =>{
     return(
         <div className="col-6 border ">
         <div className="p-3 d-flex">
             <div className="w-50">
-                <img src="estrella.jpg" alt="" className="w-100" />
+                <img src={birra.imagen} alt={birra.nombre} className="w-100" />
             </div>
             <div>
-                <h4 className="">Estrella Galicia</h4>
-                <p>Cerveza suave y equilibrada con un sabor ligeramente amargo y aroma a malta.</p>
+                <h4 className="">{birra.nombre}</h4>
+                <p>{birra.descripcion}</p>
             </div>
         </div>
     </div>
