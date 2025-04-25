@@ -1,4 +1,10 @@
-const TablaPedidos = ({ comandas }) => {
+import { ComandasContext } from "../context/ComandasContext";
+import { useContext } from "react";
+
+const TablaPedidos = () => {
+
+    const { comandas } = useContext(ComandasContext);
+
     return (
         <div id="tablaPedidos" class="container mt-5 mb-5 p-5 border shadow-lg ">
             <div class="row">

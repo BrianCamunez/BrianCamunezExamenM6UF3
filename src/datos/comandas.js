@@ -1,4 +1,4 @@
-const comandas = [
+export const comandas = [
     {
       numeroMesa: 1,
       grupo: "Borrachos de DAW2",
@@ -14,5 +14,3 @@ const comandas = [
       estado: "servido"
     }
   ];
-
-export default comandas;

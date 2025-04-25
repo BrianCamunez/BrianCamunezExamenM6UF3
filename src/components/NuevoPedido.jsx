@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import FichaBirra from "./FichaBirra";
 import bd from "../datos/info";
-import comandas from "../datos/comandas";
+import { ComandasContext } from "../context/ComandasContext";
+
 
 const NuevoPedido = () => {
 
+    const { agregarComanda } = useContext(ComandasContext);
     const [birra, setBirra] = useState(null);
     const [grupo, setGrupo] = useState("");
     const [mesa, setMesa] = useState("");
@@ -30,8 +32,7 @@ const NuevoPedido = () => {
             estado: "pendiente",
         };
 
-        comandas.push(nuevaComanda);
-
+        agregarComanda(nuevaComanda);
         alert("¡Pedido añadido correctamente!");
 
         setGrupo("");
