@@ -1,4 +1,5 @@
 import FichaBirra from "./FichaBirra";
+import bd from "../datos/info";
 
 const NuevoPedido = () => {
 
@@ -21,7 +22,11 @@ const NuevoPedido = () => {
                 <div className="d-flex gap-3 ">
                     <select name="cervezas" id="cervezas" className="form-control">
                         <option value="">Selecciona qué birra quieres</option>
-                        <option value="">Estrella Galicia</option>
+                        {bd.map((birra) => (
+                            <option key={birra.id} value={birra.id}>
+                                {birra.nombre}
+                            </option>
+                        ))}
                     </select>
 
                     <input type="number" value="0" className="form-control" />
